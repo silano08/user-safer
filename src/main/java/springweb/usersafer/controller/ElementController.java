@@ -1,8 +1,11 @@
 package springweb.usersafer.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +14,7 @@ import springweb.usersafer.domain.UrlInfo;
 import springweb.usersafer.service.ElementService;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -42,16 +46,14 @@ public class ElementController{
     }
 
     /*
-    URL 조회
+    URL 목록 조회
     */
     @GetMapping(value = "/listUrl", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public Map<String, Object> listUrl() {
-        Map<String, Object> result = new HashMap<>();
+    public ResponseEntity<List<UrlInfo>> listUrl(Model model) {
+        List<UrlInfo> UrlInfo = elementService.findUrl();
 
-        result.put("결과","결과1");
-
-        return result;
+        return new ResponseEntity<>(UrlInfo, HttpStatus.OK);
     }
 
     /*
