@@ -22,7 +22,8 @@ public class JpaElementRepository implements ElementRepository{
 
     @Override
     public List<UrlInfo> findAll() {
-        return null;
+        return em.createQuery("select m from UrlInfo m", UrlInfo.class)
+                .getResultList();
     }
 
     @Override
