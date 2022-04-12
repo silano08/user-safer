@@ -5,12 +5,15 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
+@Table(name="URL")
 public class UrlInfo {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID")
+    private Long id;
 
-    @Column(name="ADDRESS")
+    @Column(name="ADDERESS")
     private String address;
 
     @Column(name="TITLE")
@@ -26,14 +29,14 @@ public class UrlInfo {
     private String filePath;
 
     @Column(name="USER_INFO_ID")
-    private String userInfoId;
+    private int userInfoId;
 
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -77,11 +80,11 @@ public class UrlInfo {
         this.filePath = filePath;
     }
 
-    public String getUserInfoId() {
+    public int getUserInfoId() {
         return userInfoId;
     }
 
-    public void setUserInfoId(String userInfoId) {
+    public void setUserInfoId(int userInfoId) {
         this.userInfoId = userInfoId;
     }
 }
