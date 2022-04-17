@@ -31,13 +31,17 @@ public class ElementController{
     /*
     * URL 등록
     */
-    @PostMapping(value = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/registerurl", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public Map<String, Object> registerUrl(UrlInfo urlInfo) {
+    public Map<String, Object> registerUrl(UrlInfo InputUrlInfo) {
         UrlInfo urlinfo = new UrlInfo();
 
+        // 유저 정보를 프론트에서 줘야하는거 아닌가..
+        // 유저정보를 백단에서 확인하는 미들웨어가 있어야할것같은데 < 이거 나중에 리팩토링 ㄱㄱ
 
-        System.out.println("spring:"+ urlinfo.getAddress());
+        // 이런식으로 set 여러번하는거 너무 소모적인데 줄일방법없나..
+//        urlinfo.setAddress(InputUrlInfo.getAddress());
+//        urlinfo.setTitle(InputUrlInfo.getTitle());
 
         Map<String, Object> result = new HashMap<>();
         result.put("결과","결과1");

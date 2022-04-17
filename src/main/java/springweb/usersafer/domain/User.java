@@ -1,10 +1,24 @@
 package springweb.usersafer.domain;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="USER_INFO")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID")
     private String id;
+
+    @Column(name="PWD")
     private String pwd;
+
+    @Column(name="NICKNAME")
     private String nickName;
+
+    @Column(name="PROFILE")
     private String profile;
 
     public String getId() {
