@@ -13,7 +13,7 @@ public class UrlInfo {
     @Column(name="ID")
     private Long id;
 
-    @Column(name="ADDERESS")
+    @Column(name="ADDRESS")
     private String address;
 
     @Column(name="TITLE")
